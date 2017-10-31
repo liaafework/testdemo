@@ -31,14 +31,37 @@ public class ToDoList {
 	public Activities findActivities(String description) {
 		
 		for(Activities activitie: list) {
-			if(activitie.getDescription().equals(description)){ //TODO change to get method in Activities
+			if(activitie.getDescription().equals(description)){ 
 				return activitie;
 			}
 		}
 		
 		return null;
 	}
+
+	public Activities findActivities(LocalDate date) {
+
+		for(Activities activitie: list) {
+			if(activitie.getDate().equals(date)){ 
+				return activitie;
+			}
+		}
+
+		return null;
+	}
 	
+	
+	public void getExpiredActivities() {
+		
+		// Anropa expire kontroll metod hos alla activities
+		
+		for(Activities activitie: list) {
+			if(activitie.isExpired()) {
+				System.out.println(activitie);
+			}
+		}
+	}
 
 	
+
 }

@@ -34,7 +34,9 @@ public class Main {
 			
 				break;
 			case 3:
-				System.out.println("Case "+a); // Tempory
+				String tmp =inputNrGetString();
+				
+				System.out.println("Ret: "+tmp); // Tempory
 				break;
 			default:
 				flag=false;
@@ -80,12 +82,13 @@ public class Main {
 			}
 			return str;
 		} catch (ArithmeticException e) {
-			System.out.println("Enter a number");
+			System.out.println("Enter a String");
 			return null;
 		}
 	}
 	public static void meny() {
 		System.out.println("Press 1 for add somting to do");
 		System.out.println("Press 2 for get somting");
+		System.out.println("Press 3 för enter a String Date (test of string scanner) return same date");
 	}
 }

@@ -1,72 +1,65 @@
 package kalle;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
-
-
-
 
 public class Main {
 
 	public static Scanner sc = new Scanner(System.in);
-
-	public static void main(String[] args) {
 	
-		ToDoList item = new ToDoList();
-		LocalDate today = LocalDate.now();
+	public static void main(String[] args) {
+			
 		boolean flag = true;
 		while(flag){
 
 			meny();
-			
-			int a = inputNrGetNr();
-			switch (a) {
-			case 1:
-				System.out.println("Case "+a); // Tempory
-				item.addActivities(today.plusDays(5), "Aktivitet att göra nr 1");
-				item.addActivities(today.plusDays(3), "En annan Aktivitet");
-				item.addActivities(today.plusDays(1), "Aktivitet 3");
+			String tmp =inputNrGetString();
+			switch (tmp) {
+			case "1":
+			    // Case string "1" 
+				addMyActivityToList();
 				break;
-			case 2:
-				System.out.println("Case "+a); // Tempory
+			case "2":
+				ToDoList item = new ToDoList();
+				// Case string "2" 
 				item.findActivities("Aktivitet 3");
-	
+				//System.out.println("Skriv Ut");
 			
 				break;
-			case 3:
-				String tmp =inputNrGetString();
-				
-				System.out.println("Ret: "+tmp); // Tempory
+			case "3":
+				// Case string "3" 
 				break;
-			default:
+			case "x":
+				System.out.println("Exit program...");
 				flag=false;
 				break;
+			default:
+				System.out.println("Not a valid input...");
+				break;
 			}
-			System.out.println("");
-
-			
+			System.out.println("");			
 		}
-
 		sc.close();
 	}
+	public static void addMyActivityToList() {
 		
-	public static int inputNrGetNr() {
-		boolean flag = true;
-		int number;
 		try {
-			number = sc.nextInt();
-			while(flag) {
-
-				if(number !=0) {
-					//retNr=number;
-					flag=false;
-				}
-			}
-			return number;
-		} catch (ArithmeticException e) {
-			System.out.println("Enter a number");
-			return 0;
+			ToDoList item = new ToDoList();
+		//	LocalDate expireDate = null;
+			
+			String myActivity;
+			System.out.println("Input activity ,expire date(ex: WorkTime,2017-11-05)");
+			String tmp =inputNrGetString()+",";
+			String[] output = tmp.split(",");
+			myActivity = output[0].trim();
+		//	expireDate = tmp/////////////////////////////////////////LocalDate.parse(output[1].trim()); //TODO bugg fix 
+			item.addActivities(LocalDate.now(), myActivity);
+		} catch (DateTimeParseException e) {
+			
+			System.out.println("Date was not correct..\n");
 		}
+			
 	}
 	public static String inputNrGetString() {
 		boolean flag = true;
@@ -74,9 +67,7 @@ public class Main {
 		try {
 			str = sc.next();
 			while(flag) {
-
 				if(!str.equals(null)) {
-					//retNr=number;
 					flag=false;
 				}
 			}
@@ -87,8 +78,9 @@ public class Main {
 		}
 	}
 	public static void meny() {
+		System.out.println("My ToDo List (x for exite)");
 		System.out.println("Press 1 for add somting to do");
 		System.out.println("Press 2 for get somting");
-		System.out.println("Press 3 för enter a String Date (test of string scanner) return same date");
+		System.out.println("Press 3 för somthing");
 	}
 }

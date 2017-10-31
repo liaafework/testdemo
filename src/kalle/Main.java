@@ -23,11 +23,13 @@ public class Main {
 			switch (a) {
 			case 1:
 				System.out.println("Case "+a); // Tempory
-				item.addActivities(today.plusDays(5), "Nära nu");
+				item.addActivities(today.plusDays(5), "Aktivitet att göra nr 1");
+				item.addActivities(today.plusDays(3), "En annan Aktivitet");
+				item.addActivities(today.plusDays(1), "Aktivitet 3");
 				break;
 			case 2:
 				System.out.println("Case "+a); // Tempory
-				item.findActivities("Nära nu");
+				item.findActivities("Aktivitet 3");
 	
 			
 				break;

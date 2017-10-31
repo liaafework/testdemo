@@ -1,7 +1,8 @@
 package kalle;
 
+import java.time.LocalDate;
 import java.util.Scanner;
-import java.util.function.ToIntFunction;
+
 
 
 
@@ -11,6 +12,8 @@ public class Main {
 
 	public static void main(String[] args) {
 	
+		ToDoList item = new ToDoList();
+		LocalDate today = LocalDate.now();
 		boolean flag = true;
 		while(flag){
 
@@ -20,9 +23,13 @@ public class Main {
 			switch (a) {
 			case 1:
 				System.out.println("Case "+a); // Tempory
+				item.addActivities(today.plusDays(5), "Nära nu");
 				break;
 			case 2:
 				System.out.println("Case "+a); // Tempory
+				System.out.println(item.findActivities("Nära nu"));
+				
+			
 				break;
 			case 3:
 				System.out.println("Case "+a); // Tempory
@@ -31,7 +38,7 @@ public class Main {
 				flag=false;
 				break;
 			}
-			System.out.println("Exit2 "+a);
+			System.out.println("");
 
 			
 		}
@@ -58,6 +65,7 @@ public class Main {
 		}
 	}
 	public static void meny() {
-		System.out.println("Press 1 for Item1\nPress 2 for  Item2\nPress 3 for  Item3");
+		System.out.println("Press 1 for add somting to do");
+		System.out.println("Press 2 for get somting");
 	}
 }

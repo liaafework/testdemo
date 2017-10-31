@@ -27,8 +27,8 @@ public class Main {
 				break;
 			case 2:
 				System.out.println("Case "+a); // Tempory
-				System.out.println(item.findActivities("Nära nu"));
-				
+				item.findActivities("Nära nu");
+	
 			
 				break;
 			case 3:
@@ -62,6 +62,24 @@ public class Main {
 		} catch (ArithmeticException e) {
 			System.out.println("Enter a number");
 			return 0;
+		}
+	}
+	public static String inputNrGetString() {
+		boolean flag = true;
+		String str;
+		try {
+			str = sc.next();
+			while(flag) {
+
+				if(!str.equals(null)) {
+					//retNr=number;
+					flag=false;
+				}
+			}
+			return str;
+		} catch (ArithmeticException e) {
+			System.out.println("Enter a number");
+			return null;
 		}
 	}
 	public static void meny() {

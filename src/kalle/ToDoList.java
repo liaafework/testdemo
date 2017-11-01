@@ -16,7 +16,7 @@ public class ToDoList {
 	
 	
 	
-	public void removeActibities(Activities ActivitieToRemove) {
+	public void removeActivities(Activities ActivitieToRemove) {
 		
 		Iterator<Activities> iter = list.iterator();
 		
@@ -30,35 +30,54 @@ public class ToDoList {
 	
 	public void findActivities(String description) {
 		List<Activities> temp = findWithString(description);
-		for(Activities activitie: temp) {
+		if(!temp.isEmpty()) {
+			for(Activities activitie: temp) {
 			Print.print(activitie);
-			
+			}
+		}
+		else {	
+			Print.print("No activities found");
 		}
 		
 	}
 
 	public void findActivities(LocalDate date) {
 		List<Activities> temp = findWithDate(date);
-		for(Activities activitie: temp) {
-			Print.print(activitie);
-			
+		if(!temp.isEmpty()) {
+			for(Activities activitie: temp) {
+				Print.print(activitie);
+			}
+		}
+		else {
+			Print.print("No activities found");
 		}
 
 	}
 	
 	public void ListAllActivities() {
-		for(Activities activitie:list) {
-			Print.print(activitie);
-		}
-	}
-	
-	public void getExpiredActivities() {
-		
-		for(Activities activitie: list) {
-			if(activitie.isExpired()) {
+		if(!list.isEmpty()) {
+			for(Activities activitie:list) {
 				Print.print(activitie);
 			}
 		}
+		else {
+			Print.print("No activies in the list");
+		}
+		
+	}
+	
+	public void getExpiredActivities() {
+		boolean flag = true;
+		for(Activities activitie: list) {
+			if(activitie.isExpired()) {
+				Print.print(activitie);
+				flag = false;
+			}
+		}
+		if(flag) {
+			Print.print("No activities with expired dates");
+		}
+		
 	}
 	
 	private List<Activities> findWithString(String description) { 

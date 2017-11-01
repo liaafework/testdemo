@@ -35,6 +35,24 @@ public class ToDoList {
 	
 	}
 	
+	public void removeExpiredActivities() {
+		int removed = 0;
+		List<Activities> temp = findExpired();
+		if(!temp.isEmpty()) {
+			for(Activities activitie: temp) {
+				remove(activitie);
+				removed++;
+			}
+			
+			Print.print(removed + "activities were removed");
+		}
+		else {
+		
+			Print.print("No activities with expired dates");
+		}
+		
+	}
+	
 	
 	public void findActivities(String description) {
 		List<Activities> temp = findWithString(description);
@@ -75,14 +93,15 @@ public class ToDoList {
 	}
 	
 	public void getExpiredActivities() {
-		boolean flag = true;
-		for(Activities activitie: list) {
-			if(activitie.isExpired()) {
+		List<Activities> temp = findExpired();
+		if(!temp.isEmpty()) {
+			Print.print("Expired activities");
+			for(Activities activitie: temp) {
 				Print.print(activitie);
-				flag = false;
 			}
 		}
-		if(flag) {
+		else {
+		
 			Print.print("No activities with expired dates");
 		}
 		
@@ -99,6 +118,20 @@ public class ToDoList {
 			changed++;
 		}
 		Print.print(changed + " activitie descriptions have changed");
+		
+	}
+	
+	public void changeDate(String description, LocalDate newDate) {
+		List<Activities> temp = findWithString(description);
+		int changed = 0;
+		if(temp.isEmpty()) {
+			Print.print("No activities found");
+		}
+		for(Activities activitie: list) {
+			activitie.setDate(newDate);
+			changed++;
+		}
+		Print.print(changed + " activitie dates have changed");
 		
 	}
 	
@@ -129,7 +162,18 @@ public class ToDoList {
 			if(iter.next().equals(ActivitieToRemove)) {
 				iter.remove();
 			}
-		};
+		}
+	}
+	
+	private List<Activities> findExpired(){
+		List<Activities>temp = new ArrayList<>();
+		for(Activities activitie: list) {
+			if(activitie.isExpired()) {
+				temp.add(activitie);
+				
+			}
+		}
+		return temp;
 	}
 
 

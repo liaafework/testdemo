@@ -65,6 +65,8 @@ public class Main {
 
 		
 	}
+	
+	
 	public static void meny() {
 		System.out.println("My ToDo List (x for exite)");
 		System.out.println("Press 1 for add Items to this week");

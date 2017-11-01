@@ -1,13 +1,12 @@
 package kalle;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Main {
 
 	public static Scanner sc = new Scanner(System.in);
-	
+	static ToDoList item = new ToDoList();
 	public static void main(String[] args) {
 			
 		boolean flag = true;
@@ -17,18 +16,19 @@ public class Main {
 			String tmp =inputNrGetString();
 			switch (tmp) {
 			case "1":
-			    // Case string "1" 
-				addMyActivityToList();
+			    // Case string "1"
+				tmp =inputNrGetString();
+				item.addActivities(LocalDate.now(), tmp);
+				System.out.println(tmp);	
 				break;
 			case "2":
-				ToDoList item = new ToDoList();
 				// Case string "2" 
-				item.findActivities("Aktivitet 3");
-				//System.out.println("Skriv Ut");
-			
+				tmp =inputNrGetString();
+				item.addActivities(LocalDate.now().plusWeeks(1), tmp);	
 				break;
 			case "3":
 				// Case string "3" 
+				item.findActivities("Aktivitet 3");	
 				break;
 			case "x":
 				System.out.println("Exit program...");
@@ -42,45 +42,33 @@ public class Main {
 		}
 		sc.close();
 	}
-	public static void addMyActivityToList() {
-		
-		try {
-			ToDoList item = new ToDoList();
-		//	LocalDate expireDate = null;
-			
-			String myActivity;
-			System.out.println("Input activity ,expire date(ex: WorkTime,2017-11-05)");
-			String tmp =inputNrGetString()+",";
-			String[] output = tmp.split(",");
-			myActivity = output[0].trim();
-		//	expireDate = tmp/////////////////////////////////////////LocalDate.parse(output[1].trim()); //TODO bugg fix 
-			item.addActivities(LocalDate.now(), myActivity);
-		} catch (DateTimeParseException e) {
-			
-			System.out.println("Date was not correct..\n");
-		}
-			
-	}
+	
+	
 	public static String inputNrGetString() {
 		boolean flag = true;
 		String str;
 		try {
-			str = sc.next();
+			str = sc.nextLine();
 			while(flag) {
+
 				if(!str.equals(null)) {
+					//retNr=number;
 					flag=false;
 				}
 			}
 			return str;
 		} catch (ArithmeticException e) {
-			System.out.println("Enter a String");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return null;
 		}
+
+		
 	}
 	public static void meny() {
 		System.out.println("My ToDo List (x for exite)");
-		System.out.println("Press 1 for add somting to do");
-		System.out.println("Press 2 for get somting");
+		System.out.println("Press 1 for add Items to this week");
+		System.out.println("Press 2 for add items to do next week");
 		System.out.println("Press 3 för somthing");
 	}
 }

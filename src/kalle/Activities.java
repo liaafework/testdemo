@@ -2,6 +2,7 @@ package kalle;
 
 import java.time.LocalDate;
 
+
 public class Activities {
 	
 	private LocalDate date;
@@ -47,8 +48,15 @@ public class Activities {
 		else {
 			return false;
 		}
+		
 	}
 	
+	public int compareTo(Activities o) {
+		
+		return this.date.compareTo (o.getDate());
+	}
+		 
+	 
 	public String toString() {
 		return "Activity: Date: " + date + ", Description: " + description;
 	}

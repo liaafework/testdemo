@@ -67,9 +67,7 @@ public class ToDoList {
 	public void findActivities(String description) {
 		List<Activities> temp = findWithString(description);
 		if(!temp.isEmpty()) {
-			for(Activities activitie: temp) {
-			Print.print(activitie);
-			}
+			Print.print(temp);
 		}
 		else {	
 			Print.print("No activities found");
@@ -80,9 +78,7 @@ public class ToDoList {
 	public void findActivities(LocalDate date) {
 		List<Activities> temp = findWithDate(date);
 		if(!temp.isEmpty()) {
-			for(Activities activitie: temp) {
-				Print.print(activitie);
-			}
+			Print.print(temp);
 		}
 		else {
 			Print.print("No activities found");
@@ -92,9 +88,7 @@ public class ToDoList {
 	
 	public void ListAllActivities() {
 		if(!list.isEmpty()) {
-			for(Activities activitie:list) {
-				Print.print(activitie);
-			}
+			Print.print(list);
 		}
 		else {
 			Print.print("No activies in the list");
@@ -106,9 +100,7 @@ public class ToDoList {
 		List<Activities> temp = findExpired();
 		if(!temp.isEmpty()) {
 			Print.print("Expired activities");
-			for(Activities activitie: temp) {
-				Print.print(activitie);
-			}
+			Print.print(temp);
 		}
 		else {
 		

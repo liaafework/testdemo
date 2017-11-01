@@ -4,6 +4,7 @@ package kalle;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+
 import java.util.List;
 
 public class SaveToFile {
@@ -14,5 +15,6 @@ public class SaveToFile {
 		oos.writeObject(list);
 		fout.close();
 		}
+	
 	
 }

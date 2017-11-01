@@ -8,9 +8,9 @@ import java.util.List;
 
 public class ReadFromFile {
 	
-	List<Activities> list = new ArrayList<Activities>();
 	
-	public void read(String fileName) throws IOException, ClassNotFoundException {
+	
+	public void read(String fileName,List<Activities> list) throws IOException, ClassNotFoundException {
 		FileInputStream fin= new FileInputStream (fileName);
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		list= (ArrayList<Activities>)ois.readObject(); 

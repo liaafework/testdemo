@@ -22,8 +22,10 @@ public class Main {
 				meny2();	
 				break;
 			case "3":
-				// Case string "3" 
-				item.findActivities("Aktivitet 3");	
+				meny3();
+				break;
+			case "4":
+				meny4();
 				break;
 			case "x":
 				System.out.println("Exit program...");
@@ -63,18 +65,28 @@ public class Main {
 		System.out.println("My ToDo List (x for exite)");
 		System.out.println("Press 1 for add Items to this week");
 		System.out.println("Press 2 for add items to do next week");
-		System.out.println("Press 3 för somthing");
+		System.out.println("Press 3 list all activitys");
+		System.out.println("Press 4 find activity");
 	}
 	public static void meny1(){
 		System.out.println("Enter this weeks activity");
 		String tmp =inputNrGetString();
 		item.addActivities(LocalDate.now(), tmp);
-		System.out.println(tmp+ " Is added to activity");	
+		System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
 	}
 	public static void meny2(){
 		System.out.println("Enter next weeks activity");
 		String tmp =inputNrGetString();
 		item.addActivities(LocalDate.now(), tmp);
-		System.out.println(tmp+ " Is added to activity");	
+		System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
+	}
+	public static void meny3(){
+				item.ListAllActivities();		
+	}
+	public static void meny4(){
+		System.out.println("Enter activity to found");
+		String tmp =inputNrGetString();
+		item.findActivities(tmp);
+		System.out.println("(Tempory info)Seek for:"+tmp);	
 	}
 }

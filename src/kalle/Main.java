@@ -67,6 +67,8 @@ public class Main {
 		System.out.println("Press 2 for add items to do next week");
 		System.out.println("Press 3 list all activitys");
 		System.out.println("Press 4 find activity");
+		System.out.println("Press 5 remove activity");
+		System.out.println("Press 6 find expired activitys ");
 	}
 	public static void meny1(){
 		System.out.println("Enter this weeks activity");
@@ -77,7 +79,7 @@ public class Main {
 	public static void meny2(){
 		System.out.println("Enter next weeks activity");
 		String tmp =inputNrGetString();
-		item.addActivities(LocalDate.now(), tmp);
+		item.addActivities(LocalDate.now().plusWeeks(5), tmp);
 		System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
 	}
 	public static void meny3(){
@@ -89,4 +91,14 @@ public class Main {
 		item.findActivities(tmp);
 		System.out.println("(Tempory info)Seek for:"+tmp);	
 	}
+//	public static void meny5(){
+//		System.out.println("Enter activity to remove");
+//		String tmp =inputNrGetString();
+//		item.removeActivities(tmp);
+//		System.out.println("(Tempory info)Seek for Remove:"+tmp);	
+//	}
+	public static void meny6(){	
+		item.getExpiredActivities();
+	}
+	
 }

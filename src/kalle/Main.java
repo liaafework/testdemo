@@ -36,6 +36,12 @@ public class Main {
 			case "7":
 				meny7();
 				break;
+			case "8":
+				meny8();
+				break;
+			case "9":
+				meny9();
+				break;
 			case "x":
 				System.out.println("Exit program...");
 				flag=false;
@@ -79,6 +85,8 @@ public class Main {
 		System.out.println("Press 5 remove activity");
 		System.out.println("Press 6 find expired activitys ");
 		System.out.println("Press 7 add TEMPORY LIST ");
+		System.out.println("Press 8 change activity");
+		System.out.println("Press 9 change activitys date");
 	}
 	public static void meny1(){
 		System.out.println("Enter this weeks activity");
@@ -118,5 +126,17 @@ public class Main {
 		item.addActivities(LocalDate.now().minusYears(5), "Jobba på lista");
 		item.addActivities(LocalDate.now().plusYears(2), "datum på lista");
 		System.out.println("(Tempory info) TEMP LIST Is added to activity");	
+	}
+	public static void meny8(){
+		System.out.println("Enter activity to change the name");
+		String tmp =inputNrGetString();
+		//item.findActivities(tmp);
+		//System.out.println("(Tempory info)Seek for:"+tmp);	
+	}
+	public static void meny9(){
+		System.out.println("Enter activity to change the date");
+		String tmp =inputNrGetString();
+		//item.findActivities(tmp);
+		//System.out.println("(Tempory info)Seek for:"+tmp);	
 	}
 }

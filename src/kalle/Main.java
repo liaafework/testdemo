@@ -27,6 +27,12 @@ public class Main {
 			case "4":
 				meny4();
 				break;
+			case "5":
+				//meny5();
+				break;
+			case "6":
+				meny6();
+				break;
 			case "x":
 				System.out.println("Exit program...");
 				flag=false;
@@ -79,7 +85,7 @@ public class Main {
 	public static void meny2(){
 		System.out.println("Enter next weeks activity");
 		String tmp =inputNrGetString();
-		item.addActivities(LocalDate.now().plusWeeks(5), tmp);
+		item.addActivities(LocalDate.now().plusWeeks(1), tmp);
 		System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
 	}
 	public static void meny3(){

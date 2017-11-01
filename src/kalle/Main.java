@@ -1,5 +1,6 @@
 package kalle;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -130,13 +131,18 @@ public class Main {
 	public static void meny8(){
 		System.out.println("Enter activity to change the name");
 		String tmp =inputNrGetString();
-		//item.findActivities(tmp);
+		System.out.println("Enter new name");
+		String tmp2 =inputNrGetString();
+		item.changeDescriotion(tmp,tmp2);
 		//System.out.println("(Tempory info)Seek for:"+tmp);	
 	}
 	public static void meny9(){
 		System.out.println("Enter activity to change the date");
 		String tmp =inputNrGetString();
-		//item.findActivities(tmp);
-		//System.out.println("(Tempory info)Seek for:"+tmp);	
+		System.out.println("Enter new date");
+		String tmp2 =inputNrGetString();
+		item.changeDate(tmp,LocalDate.now());
+		//System.out.println("(Tempory info)Seek for:"+tmp);
+		
 	}
 }

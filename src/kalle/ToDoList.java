@@ -27,36 +27,61 @@ public class ToDoList {
 		}
 	}
 	
-	// Method finds a Activities by matching desctiption, returns null if not found
+	
 	public void findActivities(String description) {
-		
-		for(Activities activitie: list) {
-			if(activitie.getDescription().equals(description)){ 
-				Print.print(activitie);
-			}
+		List<Activities> temp = findWithString(description);
+		for(Activities activitie: temp) {
+			Print.print(activitie);
+			
 		}
 		
 	}
 
 	public void findActivities(LocalDate date) {
-		for(Activities activitie: list) {
-			if(activitie.getDate().equals(date)){ 
-				Print.print(activitie);
-			}
+		List<Activities> temp = findWithDate(date);
+		for(Activities activitie: temp) {
+			Print.print(activitie);
+			
 		}
 
 	}
 	
+	public void ListAllActivities() {
+		for(Activities activitie:list) {
+			Print.print(activitie);
+		}
+	}
 	
 	public void getExpiredActivities() {
 		
 		for(Activities activitie: list) {
 			if(activitie.isExpired()) {
-				System.out.println(activitie);
+				Print.print(activitie);
 			}
 		}
 	}
+	
+	private List<Activities> findWithString(String description) { 
+		List<Activities>temp = new ArrayList<>();
+		for(Activities activitie: list) {
+			if(activitie.getDescription().equals(description)){ 
+				temp.add(activitie);
+			}
+		}
+		return temp;
+	}
+	
+	private List<Activities> findWithDate(LocalDate date) { 
+		List<Activities>temp = new ArrayList<>();
+		for(Activities activitie: list) {
+			if(activitie.getDate().equals(date)){ 
+				temp.add(activitie);
+			}
+		}
+		return temp;
+	}
 
+	
 	
 
 }

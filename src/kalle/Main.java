@@ -1,6 +1,6 @@
 package kalle;
 
-import java.io.IOException;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -141,8 +141,10 @@ public class Main {
 		String tmp =inputNrGetString();
 		System.out.println("Enter new date");
 		String tmp2 =inputNrGetString();
-		item.changeDate(tmp,LocalDate.now());
-		//System.out.println("(Tempory info)Seek for:"+tmp);
+		if (tmp2.matches("([0-9]{4})-([0-9]{2})-([0-9]{2})"))
+			item.changeDate(tmp,LocalDate.parse(tmp2));
+		else
+		    System.out.println("The date was not change please use the correct date format(YYYY-MM-DD)");
 		
 	}
 }

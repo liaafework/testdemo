@@ -88,6 +88,20 @@ public class ToDoList {
 		
 	}
 	
+	public void changeDescriotion(String oldDescription, String newDescription) {
+		List<Activities> temp = findWithString(oldDescription);
+		int changed = 0;
+		if(temp.isEmpty()) {
+			Print.print("No activities found");
+		}
+		for(Activities activitie: list) {
+			activitie.setDescription(newDescription);
+			changed++;
+		}
+		Print.print(changed + " activitie descriptions have changed");
+		
+	}
+	
 	private List<Activities> findWithString(String description) { 
 		List<Activities>temp = new ArrayList<>();
 		for(Activities activitie: list) {

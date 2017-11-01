@@ -44,27 +44,73 @@ public class Main {
 	}
 	
 	
-	public static String inputNrGetString() {
-		boolean flag = true;
-		String str;
-		try {
-			str = sc.nextLine();
-			while(flag) {
-
-				if(!str.equals(null)) {
-					//retNr=number;
-					flag=false;
-				}
-			}
-			return str;
-		} catch (ArithmeticException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-
-		
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+////	public static String inputNrGetString3() {
+////		boolean flag = true;
+////		String str;
+////		try {
+////			str = sc.nextLine();
+////			while(flag) {
+////
+////				if(sc.) {
+////					//retNr=number;
+////					flag=false;
+////					
+////				}
+////			}
+////			return str;
+////		} catch (ArithmeticException e) {
+////			// TODO Auto-generated catch block
+////			e.printStackTrace();
+////			return null;
+////		}
+////
+////		
+//	}
 	public static void meny() {
 		System.out.println("My ToDo List (x for exite)");
 		System.out.println("Press 1 for add Items to this week");

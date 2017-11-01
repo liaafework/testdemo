@@ -101,12 +101,12 @@ public class Main {
 		item.findActivities(tmp);
 		System.out.println("(Tempory info)Seek for:"+tmp);	
 	}
-//	public static void meny5(){
-//		System.out.println("Enter activity to remove");
-//		String tmp =inputNrGetString();
-//		item.removeActivities(tmp);
-//		System.out.println("(Tempory info)Seek for Remove:"+tmp);	
-//	}
+	public static void meny5(){
+		System.out.println("Enter activity to remove");
+		String tmp =inputNrGetString();
+		item.removeActivities(tmp);
+		System.out.println("(Tempory info)Seek for Remove:"+tmp);	
+	}
 	public static void meny6(){	
 		item.getExpiredActivities();
 	}

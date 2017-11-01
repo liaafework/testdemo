@@ -33,6 +33,9 @@ public class Main {
 			case "6":
 				meny6();
 				break;
+			case "7":
+				meny7();
+				break;
 			case "x":
 				System.out.println("Exit program...");
 				flag=false;
@@ -75,6 +78,7 @@ public class Main {
 		System.out.println("Press 4 find activity");
 		System.out.println("Press 5 remove activity");
 		System.out.println("Press 6 find expired activitys ");
+		System.out.println("Press 7 add TEMPORY LIST ");
 	}
 	public static void meny1(){
 		System.out.println("Enter this weeks activity");
@@ -106,5 +110,13 @@ public class Main {
 	public static void meny6(){	
 		item.getExpiredActivities();
 	}
-	
+	public static void meny7(){
+		
+		item.addActivities(LocalDate.now().plusWeeks(1), "JAVA for dummys");
+		item.addActivities(LocalDate.now().minusDays(50), "Java nu");
+		item.addActivities(LocalDate.now().minusMonths(5), "Kämpa med lista");
+		item.addActivities(LocalDate.now().minusYears(5), "Jobba på lista");
+		item.addActivities(LocalDate.now().plusYears(2), "datum på lista");
+		System.out.println("(Tempory info) TEMP LIST Is added to activity");	
+	}
 }

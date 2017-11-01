@@ -4,11 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public class Activities implements Serializable{
+public class Activities implements Serializable, Comparable<Activities>{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private LocalDate date;
 	private String description;
@@ -55,7 +52,7 @@ public class Activities implements Serializable{
 		}
 		
 	}
-	
+	@Override
 	public int compareTo(Activities o) {
 		
 		return this.date.compareTo (o.getDate());

@@ -50,8 +50,6 @@ public class ToDoList {
 	
 	public void getExpiredActivities() {
 		
-		// Anropa expire kontroll metod hos alla activities
-		
 		for(Activities activitie: list) {
 			if(activitie.isExpired()) {
 				System.out.println(activitie);

@@ -1,6 +1,7 @@
 package kalle;
 
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 
 public class Activities {
 	
@@ -28,9 +29,15 @@ public class Activities {
 
 
 	public boolean isExpired() {
-		return expired;
-	}
+		
+		LocalDate today = LocalDate.now();
 
-	
-	
+		if (today.isAfter(date)) {
+			return true;
+		}
+
+		else {
+			return false;
+		}
+	}
 }

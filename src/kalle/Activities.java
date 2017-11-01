@@ -44,6 +44,6 @@ public class Activities {
 	}
 	
 	public String toString() {
-		return "Activity: Date = " + date + ", Description = " + description;
+		return "Activity: Date: " + date + ", Description: " + description;
 	}
 }

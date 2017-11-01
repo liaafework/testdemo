@@ -28,26 +28,23 @@ public class ToDoList {
 	}
 	
 	// Method finds a Activities by matching desctiption, returns null if not found
-	public Activities findActivities(String description) {
+	public void findActivities(String description) {
 		
 		for(Activities activitie: list) {
 			if(activitie.getDescription().equals(description)){ 
-				return activitie;
+				Print.print(activitie);
 			}
 		}
 		
-		return null;
 	}
 
-	public Activities findActivities(LocalDate date) {
-
+	public void findActivities(LocalDate date) {
 		for(Activities activitie: list) {
 			if(activitie.getDate().equals(date)){ 
-				return activitie;
+				Print.print(activitie);
 			}
 		}
 
-		return null;
 	}
 	
 	

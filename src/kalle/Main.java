@@ -15,16 +15,11 @@ public class Main {
 			meny();
 			String tmp =inputNrGetString();
 			switch (tmp) {
-			case "1":
-			    // Case string "1"
-				tmp =inputNrGetString();
-				item.addActivities(LocalDate.now(), tmp);
-				System.out.println(tmp);	
+			case "1":   
+				meny1();				
 				break;
 			case "2":
-				// Case string "2" 
-				tmp =inputNrGetString();
-				item.addActivities(LocalDate.now().plusWeeks(1), tmp);	
+				meny2();	
 				break;
 			case "3":
 				// Case string "3" 
@@ -69,5 +64,17 @@ public class Main {
 		System.out.println("Press 1 for add Items to this week");
 		System.out.println("Press 2 for add items to do next week");
 		System.out.println("Press 3 för somthing");
+	}
+	public static void meny1(){
+		System.out.println("Enter this weeks activity");
+		String tmp =inputNrGetString();
+		item.addActivities(LocalDate.now(), tmp);
+		System.out.println(tmp+ " Is added to activity");	
+	}
+	public static void meny2(){
+		System.out.println("Enter next weeks activity");
+		String tmp =inputNrGetString();
+		item.addActivities(LocalDate.now(), tmp);
+		System.out.println(tmp+ " Is added to activity");	
 	}
 }

@@ -113,7 +113,7 @@ public class ToDoList {
 		if(temp.isEmpty()) {
 			Print.print("No activities found");
 		}
-		for(Activities activitie: list) {
+		for(Activities activitie: temp) {
 			activitie.setDescription(newDescription);
 			changed++;
 		}
@@ -127,7 +127,7 @@ public class ToDoList {
 		if(temp.isEmpty()) {
 			Print.print("No activities found");
 		}
-		for(Activities activitie: list) {
+		for(Activities activitie: temp) {
 			activitie.setDate(newDate);
 			changed++;
 		}

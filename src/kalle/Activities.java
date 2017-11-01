@@ -31,6 +31,8 @@ public class Activities {
 	public boolean isExpired() {
 		
 		LocalDate today = LocalDate.now();
+		
+		System.out.println(today);
 
 		if (today.isAfter(date)) {
 			return true;
@@ -39,5 +41,9 @@ public class Activities {
 		else {
 			return false;
 		}
+	}
+	
+	public String toString() {
+		return "Activity: Date = " + date + ", Description = " + description;
 	}
 }

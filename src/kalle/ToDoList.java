@@ -16,15 +16,23 @@ public class ToDoList {
 	
 	
 	
-	public void removeActivities(Activities ActivitieToRemove) {
+	public void removeActivities(String description) {
 		
-		Iterator<Activities> iter = list.iterator();
+		int removed = 0;
+		List<Activities>toRemove = findWithString(description);
 		
-		while(iter.hasNext()) {
-			if(iter.next().equals(ActivitieToRemove)) {
-				iter.remove();
-			}
+		for(Activities activitie:toRemove) {
+			remove(activitie);
+			removed ++;
 		}
+		
+		if(removed == 0) {
+			Print.print("No activities were removed");
+		}
+		else {
+			Print.print(removed + " activities were removed");
+		}
+	
 	}
 	
 	
@@ -100,7 +108,15 @@ public class ToDoList {
 		return temp;
 	}
 
-	
-	
+	private void remove(Activities ActivitieToRemove) {
+		Iterator<Activities> iter = list.iterator();
+
+		while(iter.hasNext()) {
+			if(iter.next().equals(ActivitieToRemove)) {
+				iter.remove();
+			}
+		};
+	}
+
 
 }

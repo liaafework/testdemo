@@ -1,5 +1,6 @@
 package kalle;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,9 +13,18 @@ public class ToDoList {
 	
 	public void addActivities(LocalDate expieringDate, String description) {
 		list.add(new Activities(expieringDate, description));
+		save();
 	}
 	
-	
+	public void save()  {
+		SaveToFile stf = new SaveToFile();
+		try {
+			stf.saveList("testFile", list);
+		}
+		catch(IOException e) {
+			Print.print("Could not save file, error: " + e);
+		}
+	}
 	
 	public void removeActivities(String description) {
 		

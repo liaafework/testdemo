@@ -4,13 +4,11 @@ package kalle;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 public class SaveToFile {
-	ToDoList list  = new ToDoList();
 	
-	
-
-	public void saveList(String fileName) throws IOException {
+	public void saveList(String fileName, List<Activities> list) throws IOException {
 		FileOutputStream fout= new FileOutputStream (fileName);
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(list);

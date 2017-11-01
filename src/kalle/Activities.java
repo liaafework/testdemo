@@ -1,10 +1,15 @@
 package kalle;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public class Activities {
+public class Activities implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private LocalDate date;
 	private String description;
 	

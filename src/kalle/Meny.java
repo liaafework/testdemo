@@ -70,7 +70,6 @@ public class Meny {
 			}
 			return str;
 		} catch (ArithmeticException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -86,15 +85,18 @@ public class Meny {
 		System.out.println("Press 4: to find an activity");
 		System.out.println("Press 5: to remove an activity");
 		System.out.println("Press 6: to find any expired activities");
-		System.out.println("Press 7:  METODE :.toLowerCase().contains(\"men\")");
+		System.out.println("Press 7: to search for activities");
 		System.out.println("Press 8: to change an activity");
 		System.out.println("Press 9: to change an activity date");
 	}
 	private void meny1(){
 		System.out.println("Enter this weeks activity:");
 		String tmp =inputNrGetString();
-		item.addActivities(LocalDate.now(), tmp);
-		//System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
+		LocalDate tmpDate = LocalDate.now();
+		int days=tmpDate.getDayOfWeek().getValue();
+		item.addActivities(tmpDate.plusDays(7-days) , tmp);
+			
+		
 	}
 	private void meny2(){
 		System.out.println("Enter an activity:");
@@ -104,7 +106,7 @@ public class Meny {
 		if (tmp2.matches(regex))
 		{
 			item.addActivities(LocalDate.parse(tmp2), tmp);
-			//System.out.println("(Tempory info)"+tmp+ " is added to activity");	
+			
 		}
 		else
 		    System.out.println("The date was not changed please use the correct date format(YYYY-MM-DD):");
@@ -117,7 +119,7 @@ public class Meny {
 		System.out.println("Enter an activity to find:");
 		String tmp =inputNrGetString();
 		item.findActivities(tmp);
-		System.out.println("(Tempory info)Seek for:"+tmp);	
+		
 	}
 	private void meny5(){
 		System.out.println("Enter an activity to remove:");
@@ -129,7 +131,10 @@ public class Meny {
 	}
 	private  void meny7(){
 		
-			
+		System.out.println("Enter an activity to search:");
+		String tmp =inputNrGetString();
+		item.findActivitiesLike(tmp);
+		
 	}
 	private void meny8(){
 		System.out.println("Enter an activity to change the name:");

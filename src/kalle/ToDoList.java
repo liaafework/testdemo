@@ -94,12 +94,16 @@ public class ToDoList {
 	}
 	
 	public void findActivitiesLike(String description) {
+		boolean notFound = true;
 		for(Activities activitie: list) {
 			if(activitie.getDescription().toLowerCase().contains(description.toLowerCase())){ 
 				Print.print(activitie);
+				notFound = false;
 			}
 		}
-		
+		if(notFound) {
+			Print.print("No activities found");
+		}
 	}
 
 	public void findActivities(LocalDate date) {
@@ -120,7 +124,15 @@ public class ToDoList {
 		else {
 			Print.print("No activies in the list");
 		}
-		
+	}
+	
+	public void ListAllActivitiesAlfabethical() {
+		if(!list.isEmpty()) {
+			Print.printAlfabethical(list);
+		}
+		else {
+			Print.print("No activies in the list");
+		}
 	}
 	
 	public void getExpiredActivities() {

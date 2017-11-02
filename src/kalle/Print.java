@@ -16,8 +16,15 @@ public class Print {
 	
 	public static void print(List<Activities>list) {
 		Collections.sort(list);
-		for(Activities actititie: list) {
-			System.out.println(actititie);
+		for(Activities activitie: list) {
+			System.out.println(activitie);
+		}
+	}
+	
+	public static void printAlfabethical(List<Activities>list) {
+		Collections.sort(list, (a1, a2) -> (a1.getDescription().compareTo(a2.getDescription())));
+		for(Activities activitie: list) {
+			System.out.println(activitie);
 		}
 	}
 

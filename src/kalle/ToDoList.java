@@ -1,5 +1,6 @@
 package kalle;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,11 +17,14 @@ public class ToDoList {
 			ReadFromFile rff = new ReadFromFile();
 			list = rff.read("testFile");
 		}
+		catch(FileNotFoundException e) {
+			list = new ArrayList<>(); 
+		}
 		catch(IOException e) {
 			Print.print("Could not read from file, error: " + e);
 		}
 		catch(ClassNotFoundException e) {
-			list = new ArrayList<>(); 
+			Print.print("Could not read from file, error: " + e);
 		}
 	}
 	

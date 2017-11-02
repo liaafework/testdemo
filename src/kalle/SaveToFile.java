@@ -10,7 +10,7 @@ import java.util.List;
 public class SaveToFile {
 	
 	public void saveList(String fileName, List<Activities> list) throws IOException {
-		FileOutputStream fout= new FileOutputStream (fileName);
+		FileOutputStream fout= new FileOutputStream (fileName, false);
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(list);
 		fout.close();

@@ -3,12 +3,26 @@ package kalle;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class ToDoList {
 	
-	private List<Activities>list = new ArrayList<>();
+	private List<Activities>list;
+	
+	
+	public ToDoList() {
+		
+		try {
+			ReadFromFile rff = new ReadFromFile();
+			list = rff.read("testFile");
+		}
+		catch(IOException e) {
+			Print.print("Could not read from file, error: " + e);
+		}
+		catch(ClassNotFoundException e) {
+			list = new ArrayList<>(); 
+		}
+	}
 	
 	
 	public void addActivities(LocalDate expieringDate, String description) {
@@ -60,7 +74,7 @@ public class ToDoList {
 		
 			Print.print("No activities with expired dates");
 		}
-		
+		save();
 	}
 	
 	
@@ -120,7 +134,7 @@ public class ToDoList {
 			changed++;
 		}
 		Print.print(changed + " activitie descriptions have changed");
-		
+		save();
 	}
 	
 	public void changeDate(String description, LocalDate newDate) {
@@ -134,7 +148,7 @@ public class ToDoList {
 			changed++;
 		}
 		Print.print(changed + " activitie dates have changed");
-		
+		save();
 	}
 	
 	private List<Activities> findWithString(String description) { 
@@ -157,14 +171,8 @@ public class ToDoList {
 		return temp;
 	}
 
-	private void remove(Activities ActivitieToRemove) {
-		Iterator<Activities> iter = list.iterator();
-
-		while(iter.hasNext()) {
-			if(iter.next().equals(ActivitieToRemove)) {
-				iter.remove();
-			}
-		}
+	private void remove(Activities activitieToRemove) {
+		list.remove(activitieToRemove);
 	}
 	
 	private List<Activities> findExpired(){

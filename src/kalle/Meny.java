@@ -43,6 +43,9 @@ public class Meny {
 			case "9":
 				meny9();
 				break;
+			case "10":
+				meny10();
+				break;
 			case "x":
 				System.out.println("Exit program...");
 				flag=false;
@@ -88,6 +91,7 @@ public class Meny {
 		System.out.println("Press 7: to search for activities");
 		System.out.println("Press 8: to change an activity");
 		System.out.println("Press 9: to change an activity date");
+		System.out.println("Press 10: to remove expireds activities");
 	}
 	private void meny1(){
 		System.out.println("Enter this weeks activity:");
@@ -153,6 +157,9 @@ public class Meny {
 		else
 		    System.out.println("The date was not changed please use the correct date format(YYYY-MM-DD):");
 		
+	}
+	private  void meny10(){	
+		item.removeExpiredActivities();
 	}
 	
 }

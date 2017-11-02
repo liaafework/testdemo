@@ -72,7 +72,7 @@ public class ToDoList {
 				removed++;
 			}
 			
-			Print.print(removed + "activities were removed");
+			Print.print(removed + " activities were removed");
 		}
 		else {
 		

@@ -10,11 +10,12 @@ public class ReadFromFile {
 	
 	
 	
-	public void read(String fileName,List<Activities> list) throws IOException, ClassNotFoundException {
+	public List<Activities> read(String fileName) throws IOException, ClassNotFoundException {
 		FileInputStream fin= new FileInputStream (fileName);
 		ObjectInputStream ois = new ObjectInputStream(fin);
-		list= (ArrayList<Activities>)ois.readObject(); 
+		ArrayList<Activities> list= (ArrayList<Activities>)ois.readObject(); 
 		fin.close();
+		return list;
 		}
 
 }

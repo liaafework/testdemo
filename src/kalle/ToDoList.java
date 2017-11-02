@@ -50,7 +50,7 @@ public class ToDoList {
 		List<Activities>toRemove = findWithString(description);
 		
 		for(Activities activitie:toRemove) {
-			remove(activitie);
+			list.remove(activitie);
 			removed ++;
 		}
 		
@@ -60,7 +60,7 @@ public class ToDoList {
 		else {
 			Print.print(removed + " activities were removed");
 		}
-	
+		save();
 	}
 	
 	public void removeExpiredActivities() {
@@ -68,7 +68,7 @@ public class ToDoList {
 		List<Activities> temp = findExpired();
 		if(!temp.isEmpty()) {
 			for(Activities activitie: temp) {
-				remove(activitie);
+				list.remove(activitie);
 				removed++;
 			}
 			
@@ -175,9 +175,6 @@ public class ToDoList {
 		return temp;
 	}
 
-	private void remove(Activities activitieToRemove) {
-		list.remove(activitieToRemove);
-	}
 	
 	private List<Activities> findExpired(){
 		List<Activities>temp = new ArrayList<>();

@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Meny {
 	private Scanner sc = new Scanner(System.in);
 	private ToDoList item = new ToDoList();
-	
+	String regex = "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$";
 	
 	public void mainMeny() {
 			
 		boolean flag = true;
 		while(flag){
-			meny_tmp();
+			
 			meny();
 			String tmp = inputNrGetString();
 			switch (tmp) {
@@ -101,7 +101,7 @@ public class Meny {
 		String tmp =inputNrGetString();
 		System.out.println("Enter an expire date:");
 		String tmp2 =inputNrGetString();
-		if (tmp2.matches("([0-9]{4})-([0-9]{2})-([0-9]{2})"))
+		if (tmp2.matches(regex))
 		{
 			item.addActivities(LocalDate.parse(tmp2), tmp);
 			//System.out.println("(Tempory info)"+tmp+ " is added to activity");	
@@ -143,19 +143,11 @@ public class Meny {
 		String tmp =inputNrGetString();
 		System.out.println("Enter a new date");
 		String tmp2 =inputNrGetString();
-		if (tmp2.matches("([0-9]{4})-([0-9]{2})-([0-9]{2})"))
+		if (tmp2.matches(regex))
 			item.changeDate(tmp,LocalDate.parse(tmp2));
 		else
 		    System.out.println("The date was not changed please use the correct date format(YYYY-MM-DD):");
 		
 	}
-	private  void meny_tmp(){
-		
-		item.addActivities(LocalDate.now().plusWeeks(1), "JAVA for dummies");
-		item.addActivities(LocalDate.now().minusDays(50), "Java nu");
-		item.addActivities(LocalDate.now().minusMonths(5), "Kämpa med lista");
-		item.addActivities(LocalDate.now().minusYears(5), "Jobba på lista");
-		item.addActivities(LocalDate.now().plusYears(2), "datum på lista");
-		//System.out.println("(Tempory info) TEMP LIST is added to activity");	
-	}
+	
 }

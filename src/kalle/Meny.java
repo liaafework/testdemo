@@ -14,7 +14,7 @@ public class Meny {
 		while(flag){
 			meny_tmp();
 			meny();
-			String tmp =inputNrGetString();
+			String tmp = inputNrGetString();
 			switch (tmp) {
 			case "1":   
 				meny1();				
@@ -78,51 +78,51 @@ public class Meny {
 		
 	}
 	private void meny() {
-		System.out.println("My ToDo List (x for exite)");
-		System.out.println("Press 1 for add Items to this week");
-		System.out.println("Press 2 for add items and expire date");
-		System.out.println("Press 3 list all activitys");
-		System.out.println("Press 4 find activity");
-		System.out.println("Press 5 remove activity");
-		System.out.println("Press 6 find expired activitys ");
-		System.out.println("Press 7  METODE :.toLowerCase().contains(\"men\")");
-		System.out.println("Press 8 change activity");
-		System.out.println("Press 9 change activitys date");
+		System.out.println("My ToDo list: (press x to exit)");
+		System.out.println("  ");
+		System.out.println("Press 1: to add an item to this week");
+		System.out.println("Press 2: to add an item and expire date");
+		System.out.println("Press 3: to list all activities");
+		System.out.println("Press 4: to find an activity");
+		System.out.println("Press 5: to remove an activity");
+		System.out.println("Press 6: to find any expired activities");
+		System.out.println("Press 7:  METODE :.toLowerCase().contains(\"men\")");
+		System.out.println("Press 8: to change an activity");
+		System.out.println("Press 9: to change an activity date");
 	}
 	private void meny1(){
-		System.out.println("Enter this weeks activity");
+		System.out.println("Enter this weeks activity:");
 		String tmp =inputNrGetString();
 		item.addActivities(LocalDate.now(), tmp);
-		System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
+		//System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
 	}
 	private void meny2(){
-		System.out.println("Enter activity");
+		System.out.println("Enter an activity:");
 		String tmp =inputNrGetString();
-		System.out.println("Enter expire date date");
+		System.out.println("Enter an expire date:");
 		String tmp2 =inputNrGetString();
 		if (tmp2.matches("([0-9]{4})-([0-9]{2})-([0-9]{2})"))
 		{
 			item.addActivities(LocalDate.parse(tmp2), tmp);
-			System.out.println("(Tempory info)"+tmp+ " Is added to activity");	
+			//System.out.println("(Tempory info)"+tmp+ " is added to activity");	
 		}
 		else
-		    System.out.println("The date was not change please use the correct date format(YYYY-MM-DD)");
+		    System.out.println("The date was not changed please use the correct date format(YYYY-MM-DD):");
 		
 	}
 	private void meny3(){
 				item.ListAllActivities();		
 	}
 	private  void meny4(){
-		System.out.println("Enter activity to found");
+		System.out.println("Enter an activity to find:");
 		String tmp =inputNrGetString();
 		item.findActivities(tmp);
 		System.out.println("(Tempory info)Seek for:"+tmp);	
 	}
 	private void meny5(){
-		System.out.println("Enter activity to remove");
+		System.out.println("Enter an activity to remove:");
 		String tmp =inputNrGetString();
 		item.removeActivities(tmp);
-		System.out.println("(Tempory info)Seek for Remove:"+tmp);	
 	}
 	private  void meny6(){	
 		item.getExpiredActivities();
@@ -132,31 +132,30 @@ public class Meny {
 			
 	}
 	private void meny8(){
-		System.out.println("Enter activity to change the name");
+		System.out.println("Enter an activity to change the name:");
 		String tmp =inputNrGetString();
-		System.out.println("Enter new name");
+		System.out.println("Enter a new name");
 		String tmp2 =inputNrGetString();
-		item.changeDescriotion(tmp,tmp2);
-		//System.out.println("(Tempory info)Seek for:"+tmp);	
+		item.changeDescription(tmp,tmp2);
 	}
 	private  void meny9(){
-		System.out.println("Enter activity to change the date");
+		System.out.println("Enter an activity to change the date:");
 		String tmp =inputNrGetString();
-		System.out.println("Enter new date");
+		System.out.println("Enter a new date");
 		String tmp2 =inputNrGetString();
 		if (tmp2.matches("([0-9]{4})-([0-9]{2})-([0-9]{2})"))
 			item.changeDate(tmp,LocalDate.parse(tmp2));
 		else
-		    System.out.println("The date was not change please use the correct date format(YYYY-MM-DD)");
+		    System.out.println("The date was not changed please use the correct date format(YYYY-MM-DD):");
 		
 	}
 	private  void meny_tmp(){
 		
-		item.addActivities(LocalDate.now().plusWeeks(1), "JAVA for dummys");
+		item.addActivities(LocalDate.now().plusWeeks(1), "JAVA for dummies");
 		item.addActivities(LocalDate.now().minusDays(50), "Java nu");
 		item.addActivities(LocalDate.now().minusMonths(5), "Kämpa med lista");
 		item.addActivities(LocalDate.now().minusYears(5), "Jobba på lista");
 		item.addActivities(LocalDate.now().plusYears(2), "datum på lista");
-		System.out.println("(Tempory info) TEMP LIST Is added to activity");	
+		//System.out.println("(Tempory info) TEMP LIST is added to activity");	
 	}
 }

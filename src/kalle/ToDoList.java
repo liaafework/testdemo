@@ -123,7 +123,7 @@ public class ToDoList {
 		
 	}
 	
-	public void changeDescriotion(String oldDescription, String newDescription) {
+	public void changeDescription(String oldDescription, String newDescription) {
 		List<Activities> temp = findWithString(oldDescription);
 		int changed = 0;
 		if(temp.isEmpty()) {

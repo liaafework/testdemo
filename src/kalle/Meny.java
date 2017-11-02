@@ -46,6 +46,9 @@ public class Meny {
 			case "10":
 				meny10();
 				break;
+			case "11":
+				meny11();
+				break;
 			case "x":
 				System.out.println("Exit program...");
 				flag=false;
@@ -92,6 +95,7 @@ public class Meny {
 		System.out.println("Press 8: to change an activity");
 		System.out.println("Press 9: to change an activity date");
 		System.out.println("Press 10: to remove expireds activities");
+		System.out.println("Press 11: to list all activities by name");
 	}
 	private void meny1(){
 		System.out.println("Enter this weeks activity:");
@@ -161,5 +165,8 @@ public class Meny {
 	private  void meny10(){	
 		item.removeExpiredActivities();
 	}
+	private void meny11(){
+		item.ListAllActivitiesAlfabethical();		
+}
 	
 }

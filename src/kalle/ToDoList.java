@@ -92,6 +92,15 @@ public class ToDoList {
 		}
 		
 	}
+	
+	public void findActivitiesLike(String description) {
+		for(Activities activitie: list) {
+			if(activitie.getDescription().toLowerCase().contains(description.toLowerCase())){ 
+				Print.print(activitie);
+			}
+		}
+		
+	}
 
 	public void findActivities(LocalDate date) {
 		List<Activities> temp = findWithDate(date);

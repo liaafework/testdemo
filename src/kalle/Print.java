@@ -3,7 +3,13 @@ package kalle;
 import java.util.Collections;
 import java.util.List;
 
-
+/*
+ * @author: Lia Afework, Anna Thompson, Tommy Steger
+ * @date: 20171101
+ * 
+ * Different printout methods. The last method sorts and prints in alphabetical order 
+ * 
+ */
 public class Print {
 	
 	public static void print(Activities activitie) {

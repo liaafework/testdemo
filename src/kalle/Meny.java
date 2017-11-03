@@ -3,10 +3,19 @@ package kalle;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+
+/*
+ * @author: Lia Afework, Anna Thompson, Tommy Steger
+ * @date: 20171101
+ * 
+ * Receives inputs from user and printouts the different Menu methods 
+ * 
+ */
+
 public class Meny {
 	private Scanner sc = new Scanner(System.in);
 	private ToDoList item = new ToDoList();
-	String regex = "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$";
+	String regex = "^((20|21)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$";
 	
 	public void mainMeny() {
 			
@@ -80,7 +89,6 @@ public class Meny {
 			return null;
 		}
 
-		
 	}
 	private void meny() {
 		System.out.println("My ToDo list: (press x to exit)");
@@ -108,17 +116,12 @@ public class Meny {
 	}
 	private void meny2(){
 		System.out.println("Enter an activity:");
-		String tmp =inputNrGetString();
+		String tmp =inputNrGetString();		
 		System.out.println("Enter an expire date:");
 		String tmp2 =inputNrGetString();
-		if (tmp2.matches(regex))
-		{
+		if (chkDateFormatAndExpire(tmp2))
 			item.addActivities(LocalDate.parse(tmp2), tmp);
 			
-		}
-		else
-		    System.out.println("The date was not changed please use the correct date format(YYYY-MM-DD):");
-		
 	}
 	private void meny3(){
 				item.ListAllActivities();		
@@ -156,17 +159,26 @@ public class Meny {
 		String tmp =inputNrGetString();
 		System.out.println("Enter a new date");
 		String tmp2 =inputNrGetString();
-		if (tmp2.matches(regex))
+		if (chkDateFormatAndExpire(tmp2))
 			item.changeDate(tmp,LocalDate.parse(tmp2));
-		else
-		    System.out.println("The date was not changed please use the correct date format(YYYY-MM-DD):");
-		
+			
 	}
 	private  void meny10(){	
 		item.removeExpiredActivities();
 	}
 	private void meny11(){
 		item.ListAllActivitiesAlfabethical();		
-}
-	
+	}
+	private boolean chkDateFormatAndExpire(String chkDate){
+		if (chkDate.matches(regex) && (LocalDate.parse(chkDate).isAfter(LocalDate.now()) || LocalDate.parse(chkDate).equals(LocalDate.now())) )
+			return true;
+		else {
+			System.out.println("The date was not changed\nplease use the correct date format(YYYY-MM-DD)\nThe date must be a date from today or after.");
+			return false;
+		}
+			
+		
+		 
+	}
+
 }

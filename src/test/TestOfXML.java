@@ -34,7 +34,7 @@ public class TestOfXML {
                     // Using XmlIO to save an object to file, errors are unexpected (write protected files)
                     try {
 
-                    	XmlIO.saveObject("todolist_test.xml", todolist);
+                    	XmlIO.saveObject("todolist_test.xml", list);
 
 
                         break;

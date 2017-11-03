@@ -212,7 +212,7 @@ public class ToDoList {
 	private List<Activities> findWithDate(LocalDate date) { 
 		List<Activities>temp = new ArrayList<>();
 		for(Activities activitie: list) {
-			if(activitie.getDate().equals(date)){ 
+			if(activitie.getLocalDate().equals(date)){ 
 				temp.add(activitie);
 			}
 		}

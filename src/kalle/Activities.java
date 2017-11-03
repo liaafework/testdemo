@@ -39,8 +39,7 @@ public class Activities implements Serializable, Comparable<Activities>{
 	}
 
 
-	public LocalDate getDate() {
-
+	public LocalDate getLocalDate() {
 		return date;
 	}
 

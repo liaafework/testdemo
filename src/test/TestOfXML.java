@@ -7,15 +7,21 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import kalle.Activities;
 import kalle.ToDoList;
 import kalle.XmlIO;
 
 public class TestOfXML {
 	private static Scanner sc = new Scanner(System.in);
+	private LocalDate date = LocalDate.now();
+	public static Activities[] list = {(new Activities("S"))};
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//Robot robot = new Robot("Test", "Model1", 10);
+
+			
+		System.out.println(list[0]);
+
 		
 		    TestToDoList todolist = new TestToDoList();
 			boolean flag = true;
@@ -27,7 +33,10 @@ public class TestOfXML {
 				case "1": {
                     // Using XmlIO to save an object to file, errors are unexpected (write protected files)
                     try {
+
                     	XmlIO.saveObject("todolist_test.xml", todolist);
+
+
                         break;
                     } catch (IOException ex) {
                         Logger.getLogger(TestOfXML.class.getName()).log(Level.SEVERE, null, ex);

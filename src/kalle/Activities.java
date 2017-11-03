@@ -3,6 +3,11 @@ package kalle;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import test.LocalDateAdapter;
+
+
 /*
  * @author: Lia Afework, Anna Thompson, Tommy Steger
  * @date: 20171101
@@ -11,25 +16,31 @@ import java.time.LocalDate;
  * toString method
  * 
  */
-
 public class Activities implements Serializable, Comparable<Activities>{
 	
 	// Variable declarations
 	private static final long serialVersionUID = 1L;
+	
+	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
 	private LocalDate date;
-	private String description;
+	
+	 private String description;
 	
 	
 	// Constructor
 	public Activities(LocalDate date, String description) {
 		super();
-		this.date = date;
 		this.description = description;
+		this.date = date;
+	}
+	
+	public Activities(String description) {
+		this(LocalDate.now(), description);		
 	}
 
 
-	// Getter method
 	public LocalDate getDate() {
+
 		return date;
 	}
 
@@ -69,7 +80,7 @@ public class Activities implements Serializable, Comparable<Activities>{
 	@Override
 	public int compareTo(Activities o) {
 		
-		return this.date.compareTo (o.getDate());
+		return this.date.compareTo (o.getLocalDate());
 	}
 		 
 	 

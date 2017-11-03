@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ToDoList {
 	
-	private List<Activities>list;
+	public List<Activities>list;
 	
 	
 	public ToDoList() {
@@ -34,6 +34,15 @@ public class ToDoList {
 		catch(ClassNotFoundException e) {
 			Print.print("Could not read from file, error: " + e);
 		}
+		
+	}
+	
+	public List<Activities> getlist(){
+		return list;
+	}
+	
+	public void setlist(List<Activities> list) {
+		this.list = list;
 	}
 	
 	
@@ -43,12 +52,18 @@ public class ToDoList {
 	}
 	
 	public void save()  {
-		SaveToFile stf = new SaveToFile();
+//		SaveToFile stf = new SaveToFile();
+//		try {
+//			stf.saveList("testFile", list);
+//		}
+//		catch(IOException e) {
+//			Print.print("Could not save file, error: " + e);
+//		}
+
 		try {
-			stf.saveList("testFile", list);
-		}
-		catch(IOException e) {
-			Print.print("Could not save file, error: " + e);
+			XmlIO.saveObject("todolist.xml", list);
+		} catch (IOException e) {
+			System.out.println("Could not save file, error: " + e);
 		}
 	}
 	

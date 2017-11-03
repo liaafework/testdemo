@@ -2,16 +2,15 @@ package test;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import kalle.ToDoList;
 import kalle.XmlIO;
 
-public class TestOfXML {
-	private static Scanner sc = new Scanner(System.in);
+public class TestOfSomeFunctions {
+
+private static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,7 +20,7 @@ public class TestOfXML {
 			boolean flag = true;
 			while(flag){
 				
-				 System.out.println("Save : 1\nLoad : 2\nAdd : 3\nList : 4\nExit : x");
+				System.out.println("Save : 1\nLoad : 2\nAdd : 3\nList : 4\nExit : x");
 				String tmp = inputNrGetString();
 				switch (tmp) {
 				case "1": {

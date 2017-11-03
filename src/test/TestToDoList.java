@@ -1,56 +1,50 @@
-package kalle;
+package test;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * @author: Lia Afework, Anna Thompson, Tommy Steger
- * @date: 20171101
- * 
- * This class arranges the list by adding, removing and editing activities and dates 
- * 
- */
+import kalle.Activities;
+import kalle.Print;
 
-public class ToDoList {
+public class TestToDoList {
 	
 	private List<Activities>list;
 	
 	
-	public ToDoList() {
+	public TestToDoList() {
 		
-		try {
-			ReadFromFile rff = new ReadFromFile();
-			list = rff.read("testFile");
-		}
-		catch(FileNotFoundException e) {
-			list = new ArrayList<>(); 
-		}
-		catch(IOException e) {
-			Print.print("Could not read from file, error: " + e);
-		}
-		catch(ClassNotFoundException e) {
-			Print.print("Could not read from file, error: " + e);
-		}
+//		try {
+//			ReadFromFile rff = new ReadFromFile();
+//			list = rff.read("testFile");
+//		}
+//		catch(FileNotFoundException e) {
+//			list = new ArrayList<>(); 
+//		}
+//		catch(IOException e) {
+//			Print.print("Could not read from file, error: " + e);
+//		}
+//		catch(ClassNotFoundException e) {
+//			Print.print("Could not read from file, error: " + e);
+//		}
 	}
 	
 	
 	public void addActivities(LocalDate expieringDate, String description) {
 		list.add(new Activities(expieringDate, description));
-		save();
+		//save();
 	}
 	
-	public void save()  {
-		SaveToFile stf = new SaveToFile();
-		try {
-			stf.saveList("testFile", list);
-		}
-		catch(IOException e) {
-			Print.print("Could not save file, error: " + e);
-		}
-	}
+//	public void save()  {
+//		SaveToFile stf = new SaveToFile();
+//		try {
+//			stf.saveList("testFile", list);
+//		}
+//		catch(IOException e) {
+//			Print.print("Could not save file, error: " + e);
+//		}
+//	}
 	
 	public void removeActivities(String description) {
 		
@@ -68,7 +62,7 @@ public class ToDoList {
 		else {
 			Print.print(removed + " activities were removed");
 		}
-		save();
+		//save();
 	}
 	
 	public void removeExpiredActivities() {
@@ -86,7 +80,7 @@ public class ToDoList {
 		
 			Print.print("No activities with expired dates");
 		}
-		save();
+		//save();
 	}
 	
 	
@@ -167,7 +161,7 @@ public class ToDoList {
 			changed++;
 		}
 		Print.print(changed + " activitie descriptions have changed");
-		save();
+		//save();
 	}
 	
 	public void changeDate(String description, LocalDate newDate) {
@@ -181,7 +175,7 @@ public class ToDoList {
 			changed++;
 		}
 		Print.print(changed + " activitie dates have changed");
-		save();
+		//save();
 	}
 	
 	private List<Activities> findWithString(String description) { 
@@ -214,6 +208,16 @@ public class ToDoList {
 			}
 		}
 		return temp;
+	}
+
+
+	public List<Activities> getList() {
+		return list;
+	}
+
+
+	public void setList(List<Activities> list) {
+		this.list = list;
 	}
 
 

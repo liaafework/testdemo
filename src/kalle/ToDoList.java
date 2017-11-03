@@ -6,6 +6,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * @author: Lia Afework, Anna Thompson, Tommy Steger
+ * @date: 20171101
+ * 
+ * This class arranges the list by adding, removing and editing activities and dates 
+ * 
+ */
+
 public class ToDoList {
 	
 	private List<Activities>list;

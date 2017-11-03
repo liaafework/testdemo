@@ -3,6 +3,15 @@ package kalle;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+
+/*
+ * @author: Lia Afework, Anna Thompson, Tommy Steger
+ * @date: 20171101
+ * 
+ * Receives inputs from user and printouts the different Menu methods 
+ * 
+ */
+
 public class Meny {
 	private Scanner sc = new Scanner(System.in);
 	private ToDoList item = new ToDoList();
@@ -80,7 +89,6 @@ public class Meny {
 			return null;
 		}
 
-		
 	}
 	private void meny() {
 		System.out.println("My ToDo list: (press x to exit)");
@@ -167,6 +175,6 @@ public class Meny {
 	}
 	private void meny11(){
 		item.ListAllActivitiesAlfabethical();		
-}
+    }
 	
 }

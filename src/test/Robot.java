@@ -4,34 +4,34 @@ import java.util.List;
 
 public class Robot {
 	
-	public String Name ;
-    public String Model ;
-    public int Power ;
+	private String name ;
+    private String model ;
+    private int power ;
     public List<String> Components;
 	public Robot(String name, String model, int power) {
 		super();
-		Name = name;
-		Model = model;
-		Power = power;
+		name = name;
+		model = model;
+		power = power;
 		
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		name = name;
 	}
 	public String getModel() {
-		return Model;
+		return model;
 	}
 	public void setModel(String model) {
-		Model = model;
+		model = model;
 	}
 	public int getPower() {
-		return Power;
+		return power;
 	}
 	public void setPower(int power) {
-		Power = power;
+		power = power;
 	}
 	public List<String> getComponents() {
 		return Components;

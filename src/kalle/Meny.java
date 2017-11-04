@@ -1,7 +1,11 @@
 package kalle;
 
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /*
@@ -21,7 +25,7 @@ public class Meny {
 			
 		boolean flag = true;
 		while(flag){
-			
+			//loadList();
 			meny();
 			String tmp = inputNrGetString();
 			switch (tmp) {
@@ -57,6 +61,13 @@ public class Meny {
 				break;
 			case "11":
 				meny11();
+				break;
+			case "12":
+				meny12();
+				break;
+			case "13":
+				//loadList();
+				System.out.println("Save xml dosen't work");
 				break;
 			case "x":
 				System.out.println("Exit program...");
@@ -104,6 +115,8 @@ public class Meny {
 		System.out.println("Press 9: to change an activity date");
 		System.out.println("Press 10: to remove expireds activities");
 		System.out.println("Press 11: to list all activities by name");
+		System.out.println("Press 12: to Save list");
+		System.out.println("Press 13: to Load list");
 	}
 	private void meny1(){
 		System.out.println("Enter this weeks activity:");
@@ -179,6 +192,23 @@ public class Meny {
 			
 		
 		 
+	}
+	private void meny12(){
+		try {
+
+        	XmlIO.saveObject("todolist.xml", item);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Meny.class.getName()).log(Level.SEVERE, null, ex);
+        }		
+	}
+	private void loadList(){
+		try {
+			item = XmlIO.loadObject("todolist.xml",ToDoList.class);
+        } catch (IOException ex) {
+            System.out.println("Could not load todolist.xml");
+        }
+        
 	}
 
 }

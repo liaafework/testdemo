@@ -5,8 +5,6 @@ import java.time.LocalDate;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import test.LocalDateAdapter;
-
 
 /*
  * @author: Lia Afework, Anna Thompson, Tommy Steger
@@ -27,17 +25,20 @@ public class Activities implements Serializable, Comparable<Activities>{
 	 private String description;
 	
 	
-	// Constructor
 	public Activities(LocalDate date, String description) {
 		super();
-		this.description = description;
 		this.date = date;
+		this.description = description;
 	}
+
+
 	
 	public Activities(String description) {
 		this(LocalDate.now(), description);		
 	}
 
+
+	
 
 	public LocalDate getLocalDate() {
 		return date;

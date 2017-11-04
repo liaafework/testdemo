@@ -21,6 +21,7 @@ public class ToDoList {
 	
 	public ToDoList() {
 		
+		
 		try {
 			ReadFromFile rff = new ReadFromFile();
 			list = rff.read("testFile");
@@ -37,12 +38,14 @@ public class ToDoList {
 		
 	}
 	
-	public List<Activities> getlist(){
+	public List<Activities> getList(){
 		return list;
 	}
 	
 	public void setlist(List<Activities> list) {
+				
 		this.list = list;
+		
 	}
 	
 	
@@ -52,18 +55,12 @@ public class ToDoList {
 	}
 	
 	public void save()  {
-//		SaveToFile stf = new SaveToFile();
-//		try {
-//			stf.saveList("testFile", list);
-//		}
-//		catch(IOException e) {
-//			Print.print("Could not save file, error: " + e);
-//		}
-
+		SaveToFile stf = new SaveToFile();
 		try {
-			XmlIO.saveObject("todolist.xml", list);
-		} catch (IOException e) {
-			System.out.println("Could not save file, error: " + e);
+			stf.saveList("testFile", list);
+		}
+		catch(IOException e) {
+			Print.print("Could not save file, error: " + e);
 		}
 	}
 	

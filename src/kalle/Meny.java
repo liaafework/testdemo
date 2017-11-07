@@ -2,10 +2,11 @@ package kalle;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 
 
 /*
@@ -25,51 +26,66 @@ public class Meny {
 			
 		boolean flag = true;
 		while(flag){
-			//loadList();
+			
 			meny();
 			String tmp = inputNrGetString();
 			switch (tmp) {
-			case "1":   
-				meny1();				
+			case "1": 
+				//Press 1: to add an item to this week
+				addActivities();				
 				break;
 			case "2":
-				meny2();	
+				//Press 2: to add an item and expire date
+				addActivitiesAndDate();	
 				break;
 			case "3":
-				meny3();
+				//Press 3: to list all activities
+				listAllActivitis();
 				break;
 			case "4":
-				meny4();
+				//Press 4: to find an activity
+				findActivities();
 				break;
 			case "5":
-				meny5();
+				//Press 5: to remove an activity
+				removeActivities();
 				break;
 			case "6":
-				meny6();
+				//Press 6: to find any expired activities
+				getExpiredActivities();
 				break;
 			case "7":
-				meny7();
+				//Press 7: to search for activities
+				findActivitiesLike();
 				break;
 			case "8":
-				meny8();
+				//Press 8: to change an activity
+				changeDescription();
 				break;
 			case "9":
-				meny9();
+				//Press 9: to change an activity date
+				changeDate();
 				break;
 			case "10":
-				meny10();
+				//Press 10: to remove expireds activities"
+				removeExpiredActivities();
 				break;
 			case "11":
-				meny11();
+				//Press 11: to list all activities by name
+				listAllActivitiesAlfabethical();
 				break;
 			case "12":
-				meny12();
+				//Press 12: to Save list
+				saveXML();
 				break;
 			case "13":
-				//loadList();
+				//Press 13: to Load list
+				//loadXML();
 				System.out.println("Save xml dosen't work");
 				break;
 			case "x":
+			case "X":
+				//Press x: to Exite
 				System.out.println("Exit program...");
 				flag=false;
 				break;
@@ -102,6 +118,7 @@ public class Meny {
 
 	}
 	private void meny() {
+		System.out.println("__________________________________________");
 		System.out.println("My ToDo list: (press x to exit)");
 		System.out.println("  ");
 		System.out.println("Press 1: to add an item to this week");
@@ -118,7 +135,7 @@ public class Meny {
 		System.out.println("Press 12: to Save list");
 		System.out.println("Press 13: to Load list");
 	}
-	private void meny1(){
+	private void addActivities(){
 		System.out.println("Enter this weeks activity:");
 		String tmp =inputNrGetString();
 		LocalDate tmpDate = LocalDate.now();
@@ -127,47 +144,47 @@ public class Meny {
 			
 		
 	}
-	private void meny2(){
+	private void addActivitiesAndDate(){
 		System.out.println("Enter an activity:");
 		String tmp =inputNrGetString();		
 		System.out.println("Enter an expire date:");
 		String tmp2 =inputNrGetString();
 		if (chkDateFormatAndExpire(tmp2))
 			list.addActivities(LocalDate.parse(tmp2), tmp);
-			
+				
 	}
-	private void meny3(){
+	private void listAllActivitis(){
 				list.ListAllActivities();		
 	}
-	private  void meny4(){
+	private  void findActivities(){
 		System.out.println("Enter an activity to find:");
 		String tmp =inputNrGetString();
 		list.findActivities(tmp);
 		
 	}
-	private void meny5(){
+	private void removeActivities(){
 		System.out.println("Enter an activity to remove:");
 		String tmp =inputNrGetString();
 		list.removeActivities(tmp);
 	}
-	private  void meny6(){	
+	private  void getExpiredActivities(){	
 		list.getExpiredActivities();
 	}
-	private  void meny7(){
+	private  void findActivitiesLike(){
 		
 		System.out.println("Enter an activity to search:");
 		String tmp =inputNrGetString();
 		list.findActivitiesLike(tmp);
 		
 	}
-	private void meny8(){
+	private void changeDescription(){
 		System.out.println("Enter an activity to change the name:");
 		String tmp =inputNrGetString();
 		System.out.println("Enter a new name");
 		String tmp2 =inputNrGetString();
 		list.changeDescription(tmp,tmp2);
 	}
-	private  void meny9(){
+	private  void changeDate(){
 		System.out.println("Enter an activity to change the date:");
 		String tmp =inputNrGetString();
 		System.out.println("Enter a new date");
@@ -176,10 +193,10 @@ public class Meny {
 			list.changeDate(tmp,LocalDate.parse(tmp2));
 			
 	}
-	private  void meny10(){	
+	private  void removeExpiredActivities(){	
 		list.removeExpiredActivities();
 	}
-	private void meny11(){
+	private void listAllActivitiesAlfabethical(){
 		list.ListAllActivitiesAlfabethical();		
 	}
 	private boolean chkDateFormatAndExpire(String chkDate){
@@ -193,7 +210,7 @@ public class Meny {
 		
 		 
 	}
-	private void meny12(){
+	private void saveXML(){
 		try {
 
         	XmlIO.saveObject("todolist.xml", list);
@@ -202,7 +219,7 @@ public class Meny {
             Logger.getLogger(Meny.class.getName()).log(Level.SEVERE, null, ex);
         }		
 	}
-	private void loadList(){
+	private void loadXML(){
 		try {
 			list = XmlIO.loadObject("todolist.xml",ToDoList.class);
         } catch (IOException ex) {

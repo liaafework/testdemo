@@ -30,10 +30,10 @@ public class ToDoList {
 			list = new ArrayList<>(); 
 		}
 		catch(IOException e) {
-			Print.print("Could not read from file, error: " + e);
+			System.out.println("Could not read from file, error: " + e);
 		}
 		catch(ClassNotFoundException e) {
-			Print.print("Could not read from file, error: " + e);
+			System.out.println("Could not read from file, error: " + e);
 		}
 		
 	}
@@ -60,7 +60,7 @@ public class ToDoList {
 			stf.saveList("testFile", list);
 		}
 		catch(IOException e) {
-			Print.print("Could not save file, error: " + e);
+			System.out.println("Could not save file, error: " + e);
 		}
 	}
 	
@@ -75,10 +75,10 @@ public class ToDoList {
 		}
 		
 		if(removed == 0) {
-			Print.print("No activities were removed");
+			System.out.println("No activities were removed");
 		}
 		else {
-			Print.print(removed + " activities were removed");
+			System.out.println(removed + " activities were removed");
 		}
 		save();
 	}
@@ -92,11 +92,11 @@ public class ToDoList {
 				removed++;
 			}
 			
-			Print.print(removed + " activities were removed");
+			System.out.println(removed + " activities were removed");
 		}
 		else {
 		
-			Print.print("No activities with expired dates");
+			System.out.println("No activities with expired dates");
 		}
 		save();
 	}
@@ -105,10 +105,10 @@ public class ToDoList {
 	public void findActivities(String description) {
 		List<Activities> temp = findWithString(description);
 		if(!temp.isEmpty()) {
-			Print.print(temp);
+			System.out.println(temp);
 		}
 		else {	
-			Print.print("No activities found");
+			System.out.println("No activities found");
 		}
 		
 	}
@@ -117,32 +117,32 @@ public class ToDoList {
 		boolean notFound = true;
 		for(Activities activitie: list) {
 			if(activitie.getDescription().toLowerCase().contains(description.toLowerCase())){ 
-				Print.print(activitie);
+				System.out.println(activitie);
 				notFound = false;
 			}
 		}
 		if(notFound) {
-			Print.print("No activities found");
+			System.out.println("No activities found");
 		}
 	}
 
 	public void findActivities(LocalDate date) {
 		List<Activities> temp = findWithDate(date);
 		if(!temp.isEmpty()) {
-			Print.print(temp);
+			System.out.println(temp);
 		}
 		else {
-			Print.print("No activities found");
+			System.out.println("No activities found");
 		}
 
 	}
 	
 	public void ListAllActivities() {
 		if(!list.isEmpty()) {
-			Print.print(list);
+			Print.printSorted(list);
 		}
 		else {
-			Print.print("No activies in the list");
+			System.out.println("No activies in the list");
 		}
 	}
 	
@@ -151,19 +151,19 @@ public class ToDoList {
 			Print.printAlfabethical(list);
 		}
 		else {
-			Print.print("No activies in the list");
+			System.out.println("No activies in the list");
 		}
 	}
 	
 	public void getExpiredActivities() {
 		List<Activities> temp = findExpired();
 		if(!temp.isEmpty()) {
-			Print.print("Expired activities");
-			Print.print(temp);
+			System.out.println("Expired activities");
+			Print.printSorted(temp);
 		}
 		else {
 		
-			Print.print("No activities with expired dates");
+			System.out.println("No activities with expired dates");
 		}
 		
 	}
@@ -172,13 +172,13 @@ public class ToDoList {
 		List<Activities> temp = findWithString(oldDescription);
 		int changed = 0;
 		if(temp.isEmpty()) {
-			Print.print("No activities found");
+			System.out.println("No activities found");
 		}
 		for(Activities activitie: temp) {
 			activitie.setDescription(newDescription);
 			changed++;
 		}
-		Print.print(changed + " activitie descriptions have changed");
+		System.out.println(changed + " activitie descriptions have changed");
 		save();
 	}
 	
@@ -186,13 +186,13 @@ public class ToDoList {
 		List<Activities> temp = findWithString(description);
 		int changed = 0;
 		if(temp.isEmpty()) {
-			Print.print("No activities found");
+			System.out.println("No activities found");
 		}
 		for(Activities activitie: temp) {
 			activitie.setDate(newDate);
 			changed++;
 		}
-		Print.print(changed + " activitie dates have changed");
+		System.out.println(changed + " activitie dates have changed");
 		save();
 	}
 	
